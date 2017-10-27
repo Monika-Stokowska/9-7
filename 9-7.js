@@ -37,6 +37,7 @@ function setGameElements() {
         resultsElem.style.display = 'none';
   }
 }
+setGameElements();
 var playerPointsElem = document.getElementById('js-playerPoints'),
     playerNameElem = document.getElementById('js-playerName'),
     computerPointsElem = document.getElementById('js-computerPoints');
@@ -53,24 +54,23 @@ var playerPointsElem = document.getElementById('js-playerPoints'),
   }
 
 }
-function playerPick(playerPick) {
-    console.log(playerPick);
-}
-var x = Math.random();
+
 function getComputerPick() {
     var possiblePicks = ['rock', 'paper', 'scissors'];
     return possiblePicks[Math.floor(Math.random()*3)];
+}
 
-    var playerPickElem = document.getElementById('js-playerPick'),
-    computerPickElem = document.getElementById('js-computerPick'),
-    playerResultElem = document.getElementById('js-playerResult'),
-    computerResultElem = document.getElementById('js-computerResult');
+var playerPickElem = document.getElementById('js-playerPick'),
+computerPickElem = document.getElementById('js-computerPick'),
+playerResultElem = document.getElementById('js-playerResult'),
+computerResultElem = document.getElementById('js-computerResult');
 
-    function playerPick(playerPick) {
+function playerPick(playerPick) {
     var computerPick = getComputerPick();
 
     playerPickElem.innerHTML = playerPick;
     computerPickElem.innerHTML = computerPick;
+    checkRoundWinner(playerPick, computerPick);
 }
 function checkRoundWinner(playerPick, computerPick) {
   playerResultElem.innerHTML = computerResultElem.innerHTML = '';
@@ -90,20 +90,15 @@ function checkRoundWinner(playerPick, computerPick) {
     if (winnerIs == 'player') {
         playerResultElem.innerHTML = "Win!";
         player.score++;
+        setGamePoints();
     } else if (winnerIs == 'computer') {
         computerResultElem.innerHTML = "Win!";
         computer.score++;
+        setGamePoints();
     }
 
 }
-function playerPick(playerPick) {
-    var computerPick = getComputerPick();
 
-    playerPickElem.innerHTML = playerPick;
-    computerPickElem.innerHTML = computerPick;
-
-    checkRoundWinner(playerPick, computerPick);
-}
 
 function setGamePoints() {
     playerPointsElem.innerHTML = player.score;
