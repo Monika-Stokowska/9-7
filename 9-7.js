@@ -105,6 +105,6 @@ function setGamePoints() {
     computerPointsElem.innerHTML = computer.score;
 }
 
-Przyda nam się jeszcze funkcja, która sprawdzi, czy któryś z graczy zdobył 10 punktów.
+//Przyda nam się jeszcze funkcja, która sprawdzi, czy któryś z graczy zdobył 10 punktów.
 
-Jednak to zostawiam już w pełni Tobie. Powodzenia!
+//Jednak to zostawiam już w pełni Tobie. Powodzenia!
